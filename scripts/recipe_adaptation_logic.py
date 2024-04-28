@@ -2,7 +2,7 @@ import os
 import openai
 
 # Initialize the OpenAI client with the API key
-openai.api_key = 'sk-proj-4nA8mk64m2ZDzjRGcedpT3BlbkFJCHZ7ukA9SLIkw3SANJkS'
+openai.api_key = 'Enter API KEY HERE'
 
 """"
 def parse_recipe(recipe):
