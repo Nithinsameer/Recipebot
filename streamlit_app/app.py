@@ -1,6 +1,7 @@
 import os
 import sys
 import streamlit as st
+import openai
 
 # Get the current script directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -11,6 +12,25 @@ sys.path.append(parent_dir)
 
 from scripts.recipe_matching_logic import find_matching_recipes, load_and_preprocess_data, calculate_similarity
 from scripts.recipe_adaptation_logic import get_indian_recipe, validate_ingredients, indianize_recipe
+
+
+def enhance_cooking_steps(steps):
+    steps_text = " ".join(f"Step {i+1}: {step}" for i, step in enumerate(steps))
+    prompt_text = f"Rewrite the following cooking instructions with complete, grammatically correct steps:\n{steps_text}"
+
+    try:
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are an assistant that rewrites cooking instructions into complete, grammatically correct steps."},
+                {"role": "user", "content": prompt_text}
+            ]
+        )
+        enhanced_steps = response.choices[0].message.content
+        return enhanced_steps
+    except Exception as e:
+        return f"Error enhancing cooking steps: {str(e)}"
+
 
 def main():
     tabs = ["Recipe Recommendation", "Indianization bot"]
@@ -51,12 +71,13 @@ def recipe_recommendation():
         
         # When a recipe is selected, display its cooking steps
         if recipe_selection:
-            # Get the recipe details from the similar_recipes DataFrame
-            steps = top_similar_recipes[top_similar_recipes['name'] == recipe_selection].iloc[0]['steps']
+            selected_recipe = recipes_df[recipes_df['name'] == recipe_selection].iloc[0]
+            st.write('Ingredients:', ', '.join(selected_recipe['ingredients']))
             
-            st.write('Cooking steps:')
-            for i, step in enumerate(steps, start=1):
-                st.write(f'Step {i}: {step}')
+            enhanced_steps = enhance_cooking_steps(selected_recipe['steps'])
+            
+            st.write('Cooking Steps:')
+            st.write(enhanced_steps)
 
 def indianization_bot():
     st.title("Indianization bot")

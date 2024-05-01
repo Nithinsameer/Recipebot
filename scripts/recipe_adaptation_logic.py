@@ -1,8 +1,9 @@
 import os
 import openai
+import config
 
 # Initialize the OpenAI client with the API key
-openai.api_key = 'Enter API KEY HERE'
+openai.api_key = config.OPENAI_API_KEY
 
 """"
 def parse_recipe(recipe):
