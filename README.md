@@ -58,10 +58,14 @@ Steps:
    ```python
    OPENAI_API_KEY = "your_openai_api_key"
    ```
-4. Download the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)) and place the `Cleaned_raw_recipes_df.csv` file in the `data` directory.
+4. Download the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)) if the dataset provided in the zip file does not work and rename the downloaded dataset as `Cleaned_raw_recipes_df.csv` and place it in the `data` directory
+5. If you are able to access the dataset from the zip file, place the `Cleaned_raw_recipes_df.csv` file in the `data` directory.
 
 ### Running the Application
+If you are downloading the data from Kaggle:
+1. Run the preprocess_data.py and continue with the other steps below
 
+If you are able to access the data directly in the data directory:
 1. Navigate to the project directory.
 2. Run the Streamlit application by executing `streamlit run app.py`.
 3. The application will open in your default web browser, where you can interact with the Recipe Recommendation and Indianization Bot features.
