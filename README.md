@@ -58,7 +58,7 @@ Steps:
    ```python
    OPENAI_API_KEY = "your_openai_api_key"
    ```
-4. Download the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)) if the dataset provided in the zip file does not work and rename the downloaded dataset as `Cleaned_raw_recipes_df.csv` and place it in the `data` directory
+4. Download the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions]([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/datasets/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))) if the dataset provided in the zip file does not work and rename the downloaded dataset as `Cleaned_raw_recipes_df.csv` and place it in the `data` directory
 5. If you are able to access the dataset from the zip file, place the `Cleaned_raw_recipes_df.csv` file in the `data` directory.
 
 ### Running the Application
@@ -72,4 +72,4 @@ If you are able to access the data directly in the data directory:
 
 ### Dataset
 
-The project utilizes the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)). The dataset is preprocessed and cleaned to extract the ingredients and cooking steps for each recipe.
+The project utilizes the "Food.com Recipes and Interactions" dataset from Kaggle ([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions]([https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions](https://www.kaggle.com/datasets/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))). The dataset is preprocessed and cleaned to extract the ingredients and cooking steps for each recipe.
