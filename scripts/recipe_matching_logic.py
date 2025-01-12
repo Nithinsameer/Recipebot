@@ -23,11 +23,11 @@ def find_matching_recipes(user_ingredients, recipes, top_n=3):
     # Sort by match_count and return top_n recipes
     return recipes.nlargest(top_n, 'match_count')[['name', 'match_count', 'steps']]
 
-# New function to preprocess the ingredients into a string for TF-IDF
+# function to preprocess the ingredients into a string for TF-IDF
 def preprocess_ingredients(ingredients_list):
     return ' '.join(ingredients_list).lower()
 
-# New function to calculate the similarity between the user's ingredients and each recipe
+# function to calculate the similarity between the user's ingredients and each recipe
 def calculate_similarity(user_ingredients, recipes_df):
     # Preprocess the ingredients from the dataframe for TF-IDF
     recipes_df['processed_ingredients'] = recipes_df['ingredients'].apply(preprocess_ingredients)

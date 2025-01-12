@@ -36,7 +36,7 @@ def indianize_recipe(recipe_text):
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "user", "content": f"Here is a recipe: {recipe_text} Can you adapt this recipe to an Indian style?"}
+                {"role": "user", "content": f"Here is a recipe: {recipe_text} Strictly use only these ingredients. Mention upto 3 extra ingredients that are needed to make an indian recipe with the user given ingredients. Using the information adapt this recipe to an Indian style? Give response in the format of Ingredients:  and Steps:"}
             ]
         )
         # Accessing the response correctly

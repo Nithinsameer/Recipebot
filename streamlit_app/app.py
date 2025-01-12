@@ -6,7 +6,6 @@ import openai
 # Get the current script directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Add the parent directory to the Python path to find the 'scripts' package
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
@@ -20,7 +19,7 @@ def enhance_cooking_steps(steps):
 
     try:
         response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are an assistant that rewrites cooking instructions into complete, grammatically correct steps."},
                 {"role": "user", "content": prompt_text}
@@ -44,7 +43,7 @@ def main():
 def recipe_recommendation():
     st.title('Recipe Chatbot')
 
-    csv_file_path = "data/Cleaned_raw_recipes_df.csv"
+    csv_file_path = "../data/Cleaned_raw_recipes_df.csv"
     recipes_df = load_and_preprocess_data(csv_file_path)
 
     # Streamlit user input for ingredients
@@ -62,7 +61,7 @@ def recipe_recommendation():
         recipe_names_similarity = top_similar_recipes['name'].tolist()
 
         # Display the top 5 TF-IDF cosine similarity scores and names before selection
-        st.write("Top recipes based on TF-IDF cosine similarity:")
+        st.write("Top recipes based on similarity:")
         for index, row in top_similar_recipes.iterrows():
             st.write(f"{row['name']} - Similarity Score: {row['similarity']:.2f}")
 
